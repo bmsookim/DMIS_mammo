@@ -1,30 +1,10 @@
-DDSM : Sub-project for DMIS digital mammography DREAM challenge
+ornot-mass : Sub-module for DMIS digital mammography DREAM challenge
 =======================================================================================================
-Classification of DDSM dataset for DMIS-Dream Challenge
-Feb 7, 2017 DMIS Digital Mammography DREAM Challenge.
+Double-check of mass regions for DMIS-Dream Challenge
+April 25, 2017 DMIS Digital Mammography DREAM Challenge.
 
 Korea University, Data-Mining Lab
 Bumsoo Kim (meliketoy@gmail.com)
-
-# Mass-Classification
-
-Torch Implementation for Daniel L'evy, Arzav Jain's
-[Breast Mass Classification from Mammograms using Deep Convolutional Neural Networks](https://arxiv.org/pdf/1612.00542v1.pdf)
-
-## Requirements
-See the [installation instruction](INSTALL.md) for a step-by-step installation guide.
-See the [server instruction](SERVER.md) for server setup.
-
-- Install [Torch](http://torch.ch/docs/getting-started.html)
-- Install [cuda-8.0](https://developer.nvidia.com/cuda-downloads)
-- Install [cudnn v5.1](https://developer.nvidia.com/cudnn)
-- Install luarocks packages
-```bash
-$ luarocks install cutorch
-$ luarocks install xlua
-$ luarocks install optnet
-$ luarocks install nnlr
-```
 
 ## Directories & Datasets
 - modelState    : The best model will be saved in this directory
@@ -39,3 +19,21 @@ $ luarocks install nnlr
 * [ResNet-34](https://d2j0dndfm35trm.cloudfront.net/resnet-34.t7)
 * [ResNet-50](https://d2j0dndfm35trm.cloudfront.net/resnet-50.t7)
 * [ResNet-200](https://d2j0dndfm35trm.cloudfront.net/resnet-200.t7)
+
+## Download pretrained models
+The following [prepare_pretrained.sh](./prepare_pretrained.sh) module will automatically download all the pre-trained models you need.
+```bash
+$ ./prepare_pretrained.sh
+```
+
+## Execute modes
+- script_train.sh	: The training mode. The following will train over the pre-trained model of ILSVRC-2012.
+- validate.sh		: The validation mode. The following will drop a 'result.csv' file in the format below.
+```bash
+[:filename],[:prediction score]
+```
+
+You can execute each modes running the code below
+```bash
+$ ./[:execute_mode].sh
+```

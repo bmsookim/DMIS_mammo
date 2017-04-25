@@ -31,6 +31,7 @@ ROI regions will be extracted according to the heatmap derived from [ornot_calci
 - Input size : 256 x 256
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
+- Best acc   : 80%
 
 ### 2. mass-classifier
 
@@ -44,6 +45,7 @@ of the 'mass' regions in our private dataset.
 - Input size : 256 x 256
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
+- Best acc   : None
 
 ### 3. ornot-calcification
 
@@ -53,6 +55,7 @@ Regions will be extracted according to Faster-RCNN training of the 'calcificatio
 - Input size : 36 x 36
 - Crop size  : 32 x 32
 - Model      : Wide-Residual-Network 28x10
+- Best acc   : 95.5%
 
 ### 4. ornot-mass
 
@@ -62,3 +65,4 @@ Regions will be extracted according to Faster-RCNN training of the 'Mass' region
 - Input size : 256 x 256
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
+- Best acc   : 83%

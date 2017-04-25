@@ -52,7 +52,6 @@ local function findImages(dir)
 	f:close()
 
 	local nImages = #imagePaths
-	--print(nImages)
 	return imagePaths, nImages
 end
 
@@ -97,18 +96,6 @@ for i = 1, nImages do
 	_G.preprocess = dataset:preprocess()
 	input_img = _G.preprocess(test_image)
         print("Could you please tell me what the fuck is wrong?")
-	--for i=1,3 do
-	--	input_img[i]:add(-meanstd.mean[i])
-	--	input_img[i]:div(meanstd.std[i])
-	--end
-
-	--local size = 224
-	--local w1 = math.ceil((input_img:size(3)-size)/2)
-	--local h1 = math.ceil((input_img:size(2)-size)/2)
-	--local tmp = image.crop(input_img, w1, h1, w1+size, h1+size)
-	--input_img = tmp
-	--print(input_img)
-	--print(input_img:size())
 	input_img:resize(1, 3, 224, 224)
 
 	result = model:forward(input_img:cuda()):cuda()
@@ -116,14 +103,10 @@ for i = 1, nImages do
 	exp_sum = exp:sum()
 	exp = torch.div(exp, exp_sum)
 
-	--io.write(test_path..',')
-	--print(exp[1][2])
 	out:write(test_path)
 	out:write(",")
 	out:write(exp[1][2])
 	out:write("\n")
 	if(exp[1][2] > 0.5) then count = count + 1 end
 end
---print(nImages)
---print(count/nImages)
 out:close()

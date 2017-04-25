@@ -1,4 +1,4 @@
-calcification-classifier : Sub-module for DMIS digital mammography DREAM challenge
+calcification-classifier
 =======================================================================================================
 Classification of calcification regions for DMIS-Dream Challenge
 April 25, 2017 DMIS Digital Mammography DREAM Challenge.

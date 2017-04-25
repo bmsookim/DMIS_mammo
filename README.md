@@ -55,7 +55,7 @@ Regions will be extracted according to Faster-RCNN training of the 'calcificatio
 - Input size : 36 x 36
 - Crop size  : 32 x 32
 - Model      : Wide-Residual-Network 28x10
-- Best acc   : 95.5%
+- Best acc   : 96%
 
 ### 4. ornot-mass
 

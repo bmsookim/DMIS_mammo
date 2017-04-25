@@ -1,7 +1,7 @@
-mass-classifier
+ornot-calcification
 =======================================================================================================
-Classification of mass regions for DMIS-Dream Challenge
-April 25, 2017 DMIS Digital Mammography DREAM Challenge.
+Heatmap of calcifications for DMIS-Dream Challenge
+Feb 7, 2017 DMIS Digital Mammography DREAM Challenge.
 
 Korea University, Data-Mining Lab
 Bumsoo Kim (meliketoy@gmail.com)

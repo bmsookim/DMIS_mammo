@@ -1,8 +1,9 @@
-#!/bin/bash
-export netType='resnet'
-export depth=18
+#/bin/bash
+export netType='wide-resnet'
+export depth=10
+export width=5
 export dataset='dreamChallenge'
-export data='../../dataset/split_Patch/'
+export data='../../dataset/CALCIFICATION/'
 
 rm -rf gen/dreamChallenge.t7
 
@@ -11,11 +12,11 @@ th main.lua \
     -data ${data} \
     -netType ${netType} \
     -nGPU 2 \
-    -batchSize 32 \
-    -LR 1e-2 \
-    -weightDecay 1e-4 \
+    -batchSize 64 \
+    -LR 1e-1 \
+    -weightDecay 1e-3 \
     -depth ${depth} \
+    -widen_factor ${width} \
     -resetClassifier true \
     -nClasses 2 \
-    -retrain pretrained/resnet-${depth}.t7 \
-    -nGPU 2 \
+    -optnet true \

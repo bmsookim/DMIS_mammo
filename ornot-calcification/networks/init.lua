@@ -15,7 +15,6 @@
 require 'nn'
 require 'cunn'
 require 'cudnn'
-require 'nnlr'
 
 local M = {}
 
@@ -44,7 +43,7 @@ function M.setup(opt, checkpoint)
    -- optnet is an general library for reducing memory usage in neural networks
    if opt.optnet then
       local optnet = require 'optnet'
-      local imsize = opt.dataset == 'dreamChallenge' and 224 or 224
+      local imsize = opt.dataset == 'dreamChallenge' and 32 or 224
       local sampleInput = torch.zeros(4,3,imsize,imsize):type(opt.tensorType)
       optnet.optimizeMemory(model, sampleInput, {inplace = false, mode = 'training'})
    end
@@ -67,13 +66,6 @@ function M.setup(opt, checkpoint)
       linear.bias:zero()
 
       model:remove(#model.modules)
-      for i=1, model:size()-8 do
-         if (torch.type(model:get(i)) == 'cudnn.SpatialConvolution') then
-            model:get(i):learningRate('weight', 0.1)
-            model:get(i):learningRate('bias', 0.1)
-         end
-      end
-
       model:add(linear:type(opt.tensorType))
    end
 

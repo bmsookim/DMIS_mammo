@@ -23,7 +23,7 @@ $ luarocks install optnet
 
 ## Description of each modules
 
-1. Calcificatoin-Classifier
+## 1. Calcificatoin-Classifier
 
 The input of the [Calcification-classifier](./Calcification-Classifier/) will be a square window of the ROI region of 'calcification'.
 ROI regions will be extracted according to the heatmap derived from [ornot_Calcification](./ornot_Clacification).
@@ -32,12 +32,12 @@ ROI regions will be extracted according to the heatmap derived from [ornot_Calci
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
 
-2. Mass-Classifier
+## 2. Mass-Classifier
 
 The input of the [Mass-classifier](./Mass-Classifier/) will be a square window of the ROI region of 'mass'.
 ROI regions will be extracted according to
 ```bash
-Total score = Faster-RCNN results + Distance comparison of CC & MLO view + [ornot-Mass](./ornot-Mass/) results
+Total score = (Faster-RCNN results) + (Distance comparison of CC, MLO views) + ([ornot-Mass](./ornot-Mass/) results)
 ```
 of the 'mass' regions in our private dataset.
 
@@ -45,7 +45,7 @@ of the 'mass' regions in our private dataset.
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
 
-3. ornot-Calcification
+## 3. ornot-Calcification
 
 The input of the [ornot-Calcification](./ornot-Calcification) will be a tiny window of the suspected region of 'calcification'.
 Regions will be extracted according to Faster-RCNN training of the 'calcification' regions in our private dataset.
@@ -54,7 +54,7 @@ Regions will be extracted according to Faster-RCNN training of the 'calcificatio
 - Crop size  : 32 x 32
 - Model      : Wide-Residual-Network 28x10
 
-4. ornot-Mass
+## 4. ornot-Mass
 
 The input of the [ornot-Mass](./ornot-Mass) will be a square window of the suspected region of 'mass'.
 Regions will be extracted according to Faster-RCNN training of the 'Mass' regions in our private dataset.

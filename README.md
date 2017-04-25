@@ -23,18 +23,18 @@ $ luarocks install optnet
 
 ## Description of each modules
 
-## 1. Calcificatoin-Classifier
+### 1. calcificatoin-classifier
 
-The input of the [Calcification-classifier](./Calcification-Classifier/) will be a square window of the ROI region of 'calcification'.
-ROI regions will be extracted according to the heatmap derived from [ornot_Calcification](./ornot_Clacification).
+The input of the [calcification-classifier](./calcification-classifier/) will be a square window of the ROI region of 'calcification'.
+ROI regions will be extracted according to the heatmap derived from [ornot_calcification](./ornot_calcification).
 
 - Input size : 256 x 256
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
 
-## 2. Mass-Classifier
+### 2. mass-classifier
 
-The input of the [Mass-classifier](./Mass-Classifier/) will be a square window of the ROI region of 'mass'.
+The input of the [mass-classifier](./mass-classifier/) will be a square window of the ROI region of 'mass'.
 ROI regions will be extracted according to
 ```bash
 Total score = (Faster-RCNN results) + (Distance comparison of CC, MLO views) + ([ornot-Mass](./ornot-Mass/) results)
@@ -45,16 +45,20 @@ of the 'mass' regions in our private dataset.
 - Crop size  : 224 x 224
 - Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)
 
-## 3. ornot-Calcification
+### 3. ornot-calcification
 
-The input of the [ornot-Calcification](./ornot-Calcification) will be a tiny window of the suspected region of 'calcification'.
+The input of the [ornot-calcification](./ornot-calcification/) will be a tiny window of the suspected region of 'calcification'.
 Regions will be extracted according to Faster-RCNN training of the 'calcification' regions in our private dataset.
 
 - Input size : 36 x 36
 - Crop size  : 32 x 32
 - Model      : Wide-Residual-Network 28x10
 
-## 4. ornot-Mass
+### 4. ornot-mass
 
-The input of the [ornot-Mass](./ornot-Mass) will be a square window of the suspected region of 'mass'.
+The input of the [ornot-mass](./ornot-mass/) will be a square window of the suspected region of 'mass'.
 Regions will be extracted according to Faster-RCNN training of the 'Mass' regions in our private dataset.
+
+- Input size : 256 x 256
+- Crop size  : 224 x 224
+- Model      : Fine-tuned Residual Network 50 (ILSVRC-2012)

@@ -1,4 +1,4 @@
-mass-classifier
+Module #2 : mass-classifier
 =======================================================================================================
 Classification of mass regions for DMIS-Dream Challenge
 April 25, 2017 DMIS Digital Mammography DREAM Challenge.

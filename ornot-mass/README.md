@@ -1,4 +1,4 @@
-ornot-mass
+Module #4 : ornot-mass
 =======================================================================================================
 Double-check of mass regions for DMIS-Dream Challenge
 April 25, 2017 DMIS Digital Mammography DREAM Challenge.

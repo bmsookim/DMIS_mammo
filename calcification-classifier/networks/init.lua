@@ -15,6 +15,7 @@
 require 'nn'
 require 'cunn'
 require 'cudnn'
+require 'nnlr'
 
 local M = {}
 
@@ -66,6 +67,17 @@ function M.setup(opt, checkpoint)
       linear.bias:zero()
 
       model:remove(#model.modules)
+      for i=1, model:size()-1 do
+         if (torch.type(model:get(i)) == 'cudnn.SpatialConvolution') then
+            if i<model:size()-2 then
+               model:get(i):learningRate('weight', 0.1)
+               model:get(i):learningRate('bias', 0.1)
+            else
+               model:get(i):learningRate('weight', 10)
+               model:get(i):learningRate('bias', 20)
+            end
+         end
+      end
       model:add(linear:type(opt.tensorType))
    end
 

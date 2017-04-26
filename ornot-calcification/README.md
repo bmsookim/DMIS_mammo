@@ -1,4 +1,4 @@
-ornot-calcification
+Module #3 : ornot-calcification
 =======================================================================================================
 Heatmap of calcifications for DMIS-Dream Challenge
 Feb 7, 2017 DMIS Digital Mammography DREAM Challenge.

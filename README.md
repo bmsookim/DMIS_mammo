@@ -38,6 +38,9 @@ ROI regions will be extracted according to the heatmap derived from [ornot_calci
 
 ### 2. mass-classifier
 
+![alt_tag](image_readme/mass_0.png)
+![alt_tag](image_readme/mass_1.png)
+
 The input of the [mass-classifier](./mass-classifier/) will be a square window of the ROI region of 'mass'.
 ROI regions will be extracted according to
 ```bash

@@ -36,6 +36,7 @@ function checkpoint.best(opt)
     if not paths.filep(bestPath) then
         return nil
     end
+    print('=> Loading checkpoint ' .. bestPath)
     local best = torch.load(bestPath)
     local optimState = torch.load(paths.concat(opt.resume, best.modelFile))
     

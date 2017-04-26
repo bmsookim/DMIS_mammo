@@ -2,7 +2,7 @@
 export netType='resnet'
 export depth=50
 export dataset='dreamChallenge'
-export data='../data/split_0.6'
+export data='../../dataset/scratch/cal/'
 #export data='/scratch/KUMC-anamFUll-guroBenign/patch_model'
 
 # rm -rf gen/dreamChallenge.t7
@@ -16,7 +16,7 @@ th test.lua \
     -LR 1e-2 \
     -weightDecay 1e-4 \
     -depth ${depth} \
-    -resume modelState \
+    -resume Synapse \
     -resetClassifier true \
     -nClasses 2 \
     -nGPU 1 \

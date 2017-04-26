@@ -55,7 +55,7 @@ local function findImages(dir)
 	return imagePaths, nImages
 end
 
-testImagePath, nImages = findImages(opt.data .. '/val/')
+testImagePath, nImages = findImages(opt.data)-- .. '/val/')
 
 function loadImage(path)
 	local ok, input = pcall(function()
@@ -77,8 +77,8 @@ function loadImage(path)
 end
 
 local meanstd = {
-	mean = {0.358, 0.358, 0.358},
-	std = {0.166, 0.166, 0.166},
+	mean = {0.201, 0.201, 0.201},
+	std = {0.149, 0.149, 0.149},
 }
 
 count = 0
@@ -88,14 +88,19 @@ local out = assert(io.open("result.csv", "w")) -- open a file to write
 for i = 1, nImages do
 	test_path = testImagePath[i]
 	test_image = loadImage(test_path)
+        input_img = test_image
 
-	print("What can I say about this fucking situation!")
+        for i=1,3 do
+           input_img[i]:add(-meanstd.mean[i])
+           input_img[i]:div(meanstd.std[i])
+        end
 
-	local dataset = datasets.create(opt, 'val')
-	_G.dataset = dataset
-	_G.preprocess = dataset:preprocess()
-	input_img = _G.preprocess(test_image)
-        print("Could you please tell me what the fuck is wrong?")
+        local size = 224
+	local w1 = math.ceil((input_img:size(3)-size)/2)
+	local h1 = math.ceil((input_img:size(2)-size)/2)
+	local tmp = image.crop(input_img, w1, h1, w1+size, h1+size)
+	input_img = tmp
+
 	input_img:resize(1, 3, 224, 224)
 
 	result = model:forward(input_img:cuda()):cuda()

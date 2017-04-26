@@ -79,8 +79,8 @@ function M.parse(arg)
       local trainDir = paths.concat(opt.data, 'train')
       if not paths.dirp(opt.data) then
          cmd:error('error: missing Dream Challenge data directory')
-      elseif not paths.dirp(trainDir) then
-         cmd:error('error: Dream Challenge missing `train` directory: ' .. trainDir)
+      --elseif not paths.dirp(trainDir) then
+      --   cmd:error('error: Dream Challenge missing `train` directory: ' .. trainDir)
       end
       -- Default shortcutType=B and nEpochs=90
       opt.shortcutType = opt.shortcutType == '' and 'B' or opt.shortcutType

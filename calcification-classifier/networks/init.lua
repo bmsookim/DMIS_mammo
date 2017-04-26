@@ -66,6 +66,7 @@ function M.setup(opt, checkpoint)
       local linear = nn.Linear(orig.weight:size(2), opt.nClasses)
       linear.bias:zero()
 
+      --[[
       model:remove(#model.modules)
       for i=1, model:size()-1 do
          if (torch.type(model:get(i)) == 'cudnn.SpatialConvolution') then
@@ -78,6 +79,8 @@ function M.setup(opt, checkpoint)
             end
          end
       end
+      ]]
+      model:remove(#model.modules)
       model:add(linear:type(opt.tensorType))
    end
 

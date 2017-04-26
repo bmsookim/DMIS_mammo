@@ -23,7 +23,10 @@ $ luarocks install optnet
 
 ## Description of each modules
 
-### 1. calcificatoin-classifier
+### 1. calcification-classifier
+
+![alt_tag](image_readme/cal_0.png)
+![alt_tag](image_readme/cal_1.png)
 
 The input of the [calcification-classifier](./calcification-classifier/) will be a square window of the ROI region of 'calcification'.
 ROI regions will be extracted according to the heatmap derived from [ornot_calcification](./ornot_calcification).
